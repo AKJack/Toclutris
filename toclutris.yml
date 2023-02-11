@@ -12,21 +12,18 @@ script:
     working_dir: $GAMEDIR
   files:
     - silent_patch: "https://cookieplmonster.github.io/mods/toca-2/#silentpatch"
-    # - installer: "N/A:Select the game's setup file"
   installer:
     - insert-disc:
         requires: SETUP.EXE
     - task:
-        # executable: installer
         executable: $DISC/SETUP.EXE
         name: wineexec
         prefix: $GAMEDIR
     - execute:
-        name: set_z_drive
         description: "Set the Z drive back to the installer directory so Tiff Needell works"
         command: "ln -s $DISC $GAMEDIR/dosdevices/z:"
     - task:
-        name: set_card_hint_index
+        name: set_regedit
         description: "Change the Registry in the Wine Prefix so the game works beyond the launcher"
         path: HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Codemasters\Toca2
         key: CardHintIndex
