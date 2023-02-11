@@ -1,0 +1,45 @@
+name: "TOCA 2: Touring Car Challenge"
+game_slug: toca-2-touring-car-challenge
+version: Installer
+slug: toca-2-touring-car-challenge---pc
+runner: wine
+
+script:
+  game:
+    exe: $GAMEDIR/drive_c/Codemasters/Toca2/Game/toca2.exe
+    prefix: $GAMEDIR/prefix
+    arch: win32
+    working_dir: $GAMEDIR
+  files:
+    - silent_patch: "https://cookieplmonster.github.io/mods/toca-2/#silentpatch"
+    # - installer: "N/A:Select the game's setup file"
+  installer:
+    - insert-disc:
+        requires: SETUP.EXE
+    - task:
+        # executable: installer
+        executable: $DISC/SETUP.EXE
+        name: wineexec
+        prefix: $GAMEDIR
+    - execute:
+        name: set_z_drive
+        description: "Set the Z drive back to the installer directory so Tiff Needell works"
+        command: "ln -s $DISC $GAMEDIR/dosdevices/z:"
+    - task:
+        name: set_card_hint_index
+        description: "Change the Registry in the Wine Prefix so the game works beyond the launcher"
+        path: HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Codemasters\Toca2
+        key: CardHintIndex
+        value: '1'
+        type: REG_DWORD
+    - extract:
+        file: silent_patch
+        dst: $GAMEDIR/drive_c/Codemasters/Toca2/
+  wine:
+    dgvoodoo2: yes
+    overrides:
+      winmm: n,b
+
+  # system:
+  #   env:
+  #     SOMEENV: true
