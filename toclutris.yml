@@ -19,9 +19,6 @@ script:
         executable: $DISC/SETUP.EXE
         name: wineexec
         prefix: $GAMEDIR
-    - execute:
-        description: "Set the Z drive back to the installer directory so Tiff Needell works"
-        command: "ln -s $DISC $GAMEDIR/dosdevices/z:"
     - task:
         name: set_regedit
         description: "Change the Registry in the Wine Prefix so the game works beyond the launcher"
