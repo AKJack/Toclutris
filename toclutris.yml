@@ -11,7 +11,7 @@ script:
     arch: win32
     working_dir: $GAMEDIR
   files:
-    - silent_patch: "https://cookieplmonster.github.io/mods/toca-2/#silentpatch"
+    - silent_patch: "https://github.com/CookiePLMonster/SilentPatchTOCA2/releases/latest/download/SilentPatchTOCA2.zip"
   installer:
     - insert-disc:
         requires: SETUP.EXE
