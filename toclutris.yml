@@ -20,7 +20,7 @@ script:
       options:
         - next: "Next"
     - insert-disc:
-      requires: SETUP.EXE
+        requires: SETUP.EXE
     - task:
         executable: $DISC/SETUP.EXE
         name: wineexec
