@@ -22,7 +22,7 @@ script:
     - task:
         name: set_regedit
         description: "Change the Registry in the Wine Prefix so the game works beyond the launcher"
-        path: HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Codemasters\Toca2
+        path: HKEY_LOCAL_MACHINE\Software\Codemasters\Toca2
         key: CardHintIndex
         value: '1'
         type: REG_DWORD
