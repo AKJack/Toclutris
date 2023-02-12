@@ -12,15 +12,12 @@ script:
     working_dir: $GAMEDIR
   files:
     - silent_patch: "https://github.com/CookiePLMonster/SilentPatchTOCA2/releases/latest/download/SilentPatchTOCA2.zip"
-      description: |
-        "The Silent Patch will be downloaded and installed automatically; without it, the game will crash upon leaving a session.
-        See $GAMEDIR/drive_c/Codemasters/Toca2/ReadMe.txt for more info on the other useful things it does."
   installer:
     - insert-disc:
-        description: |
-          "Select \"installation\" media.
-          This ancient install wizard will not work with a read-only mount, so the installation media needs to be extracted onto the filesystem, and this pointed at the folder containing SETUP.EXE"
-        requires: SETUP.EXE
+      requires: SETUP.EXE
+      description: |
+        "Select \"installation\" media.
+        This ancient install wizard will not work with a read-only mount, so the installation media needs to be extracted onto the filesystem, and this prompt pointed at the folder containing SETUP.EXE"
     - task:
         executable: $DISC/SETUP.EXE
         name: wineexec
@@ -40,14 +37,17 @@ script:
           11). Setup Complete: No, do not restart (not required)"
     - task:
         name: set_regedit
-        description: "Change the Registry in the Wine Prefix so the game works beyond the launcher"
         path: HKEY_LOCAL_MACHINE\Software\Codemasters\Toca2
         key: CardHintIndex
         value: '1'
         type: REG_DWORD
+        description: "Change the Registry in the Wine Prefix so the game works beyond the launcher"
     - extract:
         file: silent_patch
         dst: $GAMEDIR/drive_c/Codemasters/Toca2/
+        description: |
+          "The Silent Patch will be downloaded and installed automatically; without it, the game will crash upon leaving a session.
+          See $GAMEDIR/drive_c/Codemasters/Toca2/ReadMe.txt for more info on the other useful things it does."
   wine:
     dgvoodoo2: yes
     overrides:
