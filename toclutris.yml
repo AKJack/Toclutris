@@ -33,7 +33,3 @@ script:
     dgvoodoo2: yes
     overrides:
       winmm: n,b
-
-  # system:
-  #   env:
-  #     SOMEENV: true
