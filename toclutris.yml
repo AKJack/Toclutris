@@ -19,6 +19,19 @@ script:
         executable: $DISC/SETUP.EXE
         name: wineexec
         prefix: $GAMEDIR
+        description: >
+          "The game will be installed via it's original and now quite retro/WordArt bedecked installer. Instructions are as follows:
+          1). Welcome: click Next"
+          2). SLA: click Yes
+          3). Choose Destination Location: Click Next (accept the default, please)
+          4). Setup Type: Full (Tiff won't work if anything else is selected)
+          5). DirectX 6: click No
+          6). DXMedia: click No
+          7). A very short wait
+          8). Shortcut Destination: click Next (irrelevent)
+          9). Desktop Icon: User preference
+          10). The game's README will open, close it
+          11). Setup Complete: No, do not restart (not required)"
     - task:
         name: set_regedit
         description: "Change the Registry in the Wine Prefix so the game works beyond the launcher"
