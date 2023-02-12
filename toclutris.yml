@@ -19,7 +19,7 @@ script:
         executable: $DISC/SETUP.EXE
         name: wineexec
         prefix: $GAMEDIR
-        description: >
+        description: |
           "The game will be installed via it's original and now quite retro/WordArt bedecked installer. Instructions are as follows:
           1). Welcome: click Next"
           2). SLA: click Yes
