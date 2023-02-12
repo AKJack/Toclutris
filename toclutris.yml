@@ -15,7 +15,6 @@ script:
   installer:
     - input_menu:
       description: |
-        "Select \"installation\" media.
         This ancient install wizard will not work with a read-only mount, so the installation media needs to be extracted onto the filesystem, and this prompt pointed at the folder containing SETUP.EXE"
       options:
         - next: "Next"
