@@ -12,6 +12,9 @@ script:
     working_dir: $GAMEDIR
   files:
     - silent_patch: "https://github.com/CookiePLMonster/SilentPatchTOCA2/releases/latest/download/SilentPatchTOCA2.zip"
+      description: |
+        "If the Silent Patch is not installed, the game will crash upon leaving a session.
+        See $GAMEDIR/drive_c/Codemasters/Toca2/ReadMe.txt for more info on the other useful things it does."
   installer:
     - insert-disc:
         requires: SETUP.EXE
