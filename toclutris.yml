@@ -58,7 +58,7 @@ script:
         dst: $GAMEDIR/drive_c/Codemasters/Toca2/
 
   wine:
-    desktop: true
+    Desktop: true
     dgvoodoo2: yes
     overrides:
       winmm: n,b
