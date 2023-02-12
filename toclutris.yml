@@ -14,10 +14,12 @@ script:
     - silent_patch: "https://github.com/CookiePLMonster/SilentPatchTOCA2/releases/latest/download/SilentPatchTOCA2.zip"
   installer:
     - input_menu:
-      description: |
-        This ancient install wizard will not work with a read-only mount, so the installation media needs to be extracted onto the filesystem, and this prompt pointed at the folder containing SETUP.EXE"
-      options:
-        - next: "Next"
+        description: |
+          This ancient install wizard will not work with a read-only mount (i.e. a mounted .iso image)
+          The installation media needs to be extracted onto the filesystem, and this prompt pointed at the folder containing SETUP.EXE"
+        options:
+          - next: "Continue"
+        preselect: next
     - insert-disc:
         requires: SETUP.EXE
     - task:
@@ -49,7 +51,8 @@ script:
           "The Silent Patch will be installed automatically; without it, the game will crash upon leaving a session.
           See $GAMEDIR/drive_c/Codemasters/Toca2/ReadMe.txt for more info on the other useful things it does."
         options:
-          - next: "Next"
+          - next: "Continue"
+        preselect: next
     - extract:
         file: silent_patch
         dst: $GAMEDIR/drive_c/Codemasters/Toca2/
