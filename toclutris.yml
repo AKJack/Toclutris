@@ -18,7 +18,7 @@ script:
           This ancient install wizard will not work with a read-only mount (i.e. a mounted .iso image)
           The installation media needs to be extracted onto the filesystem, and this prompt pointed at the folder containing SETUP.EXE"
         options:
-          - next: "Continue"
+          - next: "Click Continue below"
         preselect: next
     - insert-disc:
         requires: SETUP.EXE
@@ -51,7 +51,7 @@ script:
           "The Silent Patch will be installed automatically; without it, the game will crash upon leaving a session.
           See $GAMEDIR/drive_c/Codemasters/Toca2/ReadMe.txt for more info on the other useful things it does."
         options:
-          - next: "Continue"
+          - next: "Click Continue below"
         preselect: next
     - extract:
         file: silent_patch
